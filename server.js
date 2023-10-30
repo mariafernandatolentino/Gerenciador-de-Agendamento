@@ -26,8 +26,6 @@ app.post('/agendar', [
 
   const { data, hora, paciente, medico } = req.body;
 
-  // Verifique a disponibilidade da data e hora (adicione a lógica aqui)
-
   // Insira a consulta no banco de dados
   db.run(
     'INSERT INTO consultas (data, hora, paciente, medico, status) VALUES (?, ?, ?, ?, ?)',
@@ -57,7 +55,6 @@ app.get('/consultas', (req, res) => {
 app.delete('/cancelar/:id', (req, res) => {
   const consultaId = req.params.id;
 
-  // Verifique se a consulta existe e pode ser cancelada (adicione a lógica aqui)
 
   // Atualize o status da consulta para "cancelado"
   db.run(
